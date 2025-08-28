@@ -35,7 +35,7 @@ sys.path.insert(0, '/home/sampath107b/travel-booking-app')
 
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-for-dev')
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'travel_booking_app.settings')
+
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
