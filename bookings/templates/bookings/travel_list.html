@@ -1,0 +1,80 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}Travel Options - Travel Booking{% endblock %}
+
+{% block content %}
+<div class="text-center mb-5">
+    <h1 class="display-4 fw-bold text-primary mb-2">Start Your Journey Today</h1>
+    <p class="lead text-muted">Discover seamless travel experiences by bus, train, or flight. Your next adventure is just a click away!</p>
+    <hr class="my-4 w-50 mx-auto">
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header btn-primary">
+                <h3>Search Travel Options</h3>
+            </div>
+            <div class="card-body">
+                <form method="get" class="row g-3">
+                    <div class="col-md-3">
+                        <label for="type" class="form-label">Travel Type</label>
+                        <select name="type" id="type" class="form-select">
+                            <option value="">All</option>
+                            <option value="FLIGHT">Flight</option>
+                            <option value="TRAIN">Train</option>
+                            <option value="BUS">Bus</option>
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <label for="source" class="form-label">From</label>
+                        <input type="text" class="form-control" id="source" name="source" value="{{ request.GET.source }}">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="destination" class="form-label">To</label>
+                        <input type="text" class="form-control" id="destination" name="destination" value="{{ request.GET.destination }}">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="date" class="form-label">Date</label>
+                        <input type="date" class="form-control" id="date" name="date" value="{{ request.GET.date }}">
+                    </div>
+                    <div class="col-12">
+                        <button type="submit" class="btn btn-primary">Search</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    {% for option in travel_options %}
+        <div class="col-md-4 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h5 class="card-title mb-0 btn-primary">{{ option.get_type_display }}</h5>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-subtitle mb-2 text-muted">{{ option.source }} to {{ option.destination }}</h6>
+                    <p class="card-text">
+                        <strong>Date & Time:</strong> {{ option.date_time }}<br>
+                        <strong>Price:</strong> ${{ option.price }}<br>
+                        <strong>Available Seats:</strong> {{ option.available_seats }}
+                    </p>
+                    {% if user.is_authenticated %}
+                        <a href="{% url 'book_travel' option.travel_id %}" class="btn btn-primary">Book Now</a>
+                    {% else %}
+                        <a href="{% url 'login' %}" class="btn btn-primary">Login to Book</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    {% empty %}
+        <div class="col-12">
+            <div class="alert alert-info">
+                No travel options found matching your criteria.
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

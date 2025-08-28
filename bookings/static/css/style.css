@@ -1,0 +1,169 @@
+/* Navbar Styling */
+.navbar {
+    background-color: #1a73e8 !important;  /* Google Blue */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 1rem 0;
+    margin-bottom: 2rem;
+}
+
+.navbar-brand {
+    color: #ffffff !important;
+    font-weight: 600;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: #ffffff !important;
+    font-weight: 600;
+    padding: 0.5rem 1rem;
+    margin: 0 0.2rem;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    font-size: 1.1rem;
+}
+
+.navbar-nav .nav-link:hover {
+    color: #ffffff !important;
+    background-color: rgba(255,255,255,0.2);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.navbar-toggler {
+    border-color: rgba(255,255,255,0.5);
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3e%3cpath stroke='rgba(255, 255, 255, 0.9)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Active link styling */
+.navbar-nav .nav-item .nav-link.active {
+    background-color: rgba(255,255,255,0.25);
+    color: #ffffff !important;
+    font-weight: 700;
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
+}
+
+/* Button styling */
+.btn-primary {
+    background-color: #1a73e8;
+    border-color: #1a73e8;
+    padding: 0.5rem 1.5rem;
+    border-radius: 4px;
+    color: #ffffff;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #1557b0;
+    border-color: #1557b0;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Login to Book button specific styling */
+a.btn-primary[href*="login"] {
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 0.75rem 2rem;
+}
+
+/* Registration Form Styling */
+.card.shadow {
+    border: none;
+    border-radius: 10px;
+}
+
+.card-header.bg-primary {
+    border-radius: 10px 10px 0 0;
+}
+
+.card-header h2 {
+    font-size: 1.75rem;
+}
+
+/* Login Form Styling */
+.btn-lg {
+    padding: 0.75rem 1.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.btn-primary {
+    background: linear-gradient(45deg, #1a73e8, #1557b0);
+    border: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(26, 115, 232, 0.2);
+    background: linear-gradient(45deg, #1557b0, #1a73e8);
+}
+
+/* Form control styling */
+.form-control {
+    padding: 0.75rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #dee2e6;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #1a73e8;
+    box-shadow: 0 0 0 0.2rem rgba(26, 115, 232, 0.25);
+}
+
+/* Alert styling */
+.alert {
+    border-radius: 6px;
+    margin-top: 0.5rem;
+}
+
+/* Header Styling */
+.display-4 {
+    background: linear-gradient(45deg, #1a73e8, #0d47a1);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 2.8rem;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.lead {
+    font-size: 1.25rem;
+    color: #6c757d;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+hr.my-4 {
+    background: linear-gradient(to right, transparent, #1a73e8, transparent);
+    height: 2px;
+    opacity: 0.5;
+    border: none;
+}
+
+/* Add some spacing between navbar items on mobile */
+@media (max-width: 991.98px) {
+    .navbar-nav .nav-item {
+        margin: 0.2rem 0;
+    }
+    
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+
+    .display-4 {
+        font-size: 2rem;
+    }
+
+    .lead {
+        font-size: 1.1rem;
+        padding: 0 1rem;
+    }
+}

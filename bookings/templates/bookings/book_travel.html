@@ -1,0 +1,144 @@
+{% extends 'bookings/base.html' %}
+
+{% block title %}Book Travel - Travel Booking{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-lg-8 col-md-10">
+        <div class="card shadow">
+            <div class="card-header btn-primary text-white">
+                <h4 class="card-title mb-0">
+                    <i class="fas fa-ticket-alt me-2"></i>Book Travel
+                </h4>
+            </div>
+            <div class="card-body">
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    {% if travel_option.type == 'FLIGHT' %}
+                                        <i class="fas fa-plane me-2"></i>
+                                    {% elif travel_option.type == 'TRAIN' %}
+                                        <i class="fas fa-train me-2"></i>
+                                    {% else %}
+                                        <i class="fas fa-bus me-2"></i>
+                                    {% endif %}
+                                    Travel Details
+                                </h5>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2">
+                                        <i class="fas fa-map-marker-alt text-primary me-2"></i>
+                                        <strong>From:</strong> {{ travel_option.source }}
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-map-marker text-danger me-2"></i>
+                                        <strong>To:</strong> {{ travel_option.destination }}
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="far fa-calendar-alt me-2"></i>
+                                        <strong>Date & Time:</strong> {{ travel_option.date_time|date:"F j, Y, g:i a" }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="card bg-light">
+                            <div class="card-body">
+                                <h5 class="card-title">
+                                    <i class="fas fa-info-circle me-2"></i>Booking Details
+                                </h5>
+                                <!-- <form method="post" class="mt-4">
+                                    {% csrf_token %}
+                                    {% for field in form %}
+                                    <div class="mb-3">
+                                        <label for="{{ field.id_for_label }}" class="form-label">
+                                            <i class="fas fa-chair me-1"></i>{{ field.label }}
+                                        </label>
+                                        {{ field }}
+                                        {% if field.errors %}
+                                        <div class="alert alert-danger mt-2">
+                                            {{ field.errors }}
+                                        </div>
+                                        {% endif %}
+                                    </div>
+                                    {% endfor %}
+                                    <div class="d-grid gap-2">
+                                        <button type="submit" class="btn btn-primary btn-lg">
+                                            <i class="fas fa-check-circle me-2"></i>Confirm Booking
+                                        </button>
+                                    </div>
+                                </form> -->
+                                </h5>
+                                <ul class="list-unstyled mb-0">
+                                    <li class="mb-2">
+                                        <i class="fas fa-tag me-2"></i>
+                                        <strong>Price per seat:</strong> 
+                                        <span class="text-primary">${{ travel_option.price }}</span>
+                                    </li>
+                                    <li class="mb-2">
+                                        <i class="fas fa-chair me-2"></i>
+                                        <strong>Available Seats:</strong> 
+                                        <span class="text-success">{{ travel_option.available_seats }}</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <form method="post" class="needs-validation" novalidate>
+                    {% csrf_token %}
+                    <div class="mb-4">
+                        <label for="{{ form.number_of_seats.id_for_label }}" class="form-label">
+                            <i class="fas fa-users me-2"></i>Number of Seats
+                        </label>
+                        <input type="number" name="number_of_seats" 
+                               class="form-control form-control-lg {% if form.number_of_seats.errors %}is-invalid{% endif %}"
+                               id="{{ form.number_of_seats.id_for_label }}" 
+                               min="1" max="{{ travel_option.available_seats }}"
+                               required>
+                        {% if form.number_of_seats.errors %}
+                            <div class="invalid-feedback">
+                                {{ form.number_of_seats.errors }}
+                            </div>
+                        {% endif %}
+                        <div class="form-text">
+                            <i class="fas fa-info-circle me-1"></i>
+                            Select the number of seats you want to book (maximum {{ travel_option.available_seats }})
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+                        <a href="{% url 'travel_list' %}" class="btn btn-secondary btn-lg">
+                            <i class="fas fa-times me-1"></i>Cancel
+                        </a>
+                        <button type="submit" class="btn btn-primary btn-lg">
+                            <i class="fas fa-check me-1"></i>Confirm Booking
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Form validation
+    (function () {
+        'use strict'
+        var forms = document.querySelectorAll('.needs-validation')
+        Array.prototype.slice.call(forms).forEach(function (form) {
+            form.addEventListener('submit', function (event) {
+                if (!form.checkValidity()) {
+                    event.preventDefault()
+                    event.stopPropagation()
+                }
+                form.classList.add('was-validated')
+            }, false)
+        })
+    })()
+</script>
+{% endblock %}
