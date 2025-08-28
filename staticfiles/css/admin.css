@@ -1,5 +1,5 @@
 /* Navbar Styling */
- .navbar {
+.navbar {
     background-color: #1a73e8 !important;  /* Google Blue */
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
     padding: 1rem 0;
@@ -44,7 +44,7 @@
     color: #ffffff !important;
     font-weight: 700;
     box-shadow: inset 0 0 5px rgba(0,0,0,0.1);
-} 
+}
 
 /* Button styling */
 .btn-primary {
@@ -177,8 +177,8 @@ hr.my-4 {
     margin-top: 1rem;
 }
 
-/* Responsive adjustments*/
-@media (max-width: 768px) {
+/* Responsive adjustments */
+ @media (max-width: 768px) {
     .navbar-nav {
         flex-direction: column;
     }
@@ -186,7 +186,7 @@ hr.my-4 {
     .filter-form .row > div {
         margin-bottom: 1rem;
     }
-}  
+} 
 
 /* Add some spacing between navbar items on mobile */
 @media (max-width: 991.98px) {

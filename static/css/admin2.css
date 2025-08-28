@@ -1,4 +1,4 @@
-.form-group {
+ .form-group {
     margin-bottom: 1rem;
 }
 
@@ -27,8 +27,8 @@
     margin-top: 1rem;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
+/* Responsive adjustments*/
+ @media (max-width: 768px) {
     .navbar-nav {
         flex-direction: column;
     }
@@ -36,4 +36,5 @@
     .filter-form .row > div {
         margin-bottom: 1rem;
     }
-}
+} 
+
