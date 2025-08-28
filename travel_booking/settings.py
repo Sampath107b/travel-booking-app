@@ -21,10 +21,11 @@ https://docs.djangoproject.com/en/5.2/ref/settings/
 
 from pathlib import Path
 import os
+import sys
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+sys.path.insert(0, '/home/sampath107b/travel-booking-app')
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.2/howto/deployment/checklist/
@@ -34,7 +35,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-for-dev')
-
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'travel_booking_app.settings')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -87,12 +88,14 @@ os.environ['DJANGO_SECRET_KEY'] = 'django-insecure-_gifqqz^x(0#1jbkl*^1b0=%p1+aj
 os.environ['DB_PASSWORD'] = 'Himadhar123@'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
+from django.core.wsgi import get_wsgi_application
+application = get_wsgi_application()
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'travel_booking',
-        'USER': 'root',
+        'NAME': 'sampath107b$travel_booking',
+        'USER': 'sampath107b',
         'PASSWORD': os.environ.get('DB_PASSWORD', ''),
         'HOST': 'sampath107b.mysql.pythonanywhere-services.com',
         'PORT': '3306',
