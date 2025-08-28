@@ -84,12 +84,10 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'travel_booking.wsgi.application'
 
-os.environ['DJANGO_SECRET_KEY'] = 'django-insecure-_gifqqz^x(0#1jbkl*^1b0=%p1+aj97$4q-*g$^9rgv20399@1'
-os.environ['DB_PASSWORD'] = 'Himadhar123@'
+
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
-from django.core.wsgi import get_wsgi_application
-application = get_wsgi_application()
+
 
 DATABASES = {
     'default': {
