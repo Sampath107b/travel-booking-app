@@ -33,13 +33,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-SECRET_KEY = os.environ.get('django-insecure-_gifqqz^x(0#1jbkl*^1b0=%p1+aj97$4q-*g$^9rgv20399@1', 'fallback-for-dev')
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-for-dev')
 
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['sampath107b.pythonanywhere.com']
 
 
 # Application definition
@@ -83,16 +83,17 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'travel_booking.wsgi.application'
 
-
+os.environ['DJANGO_SECRET_KEY'] = 'django-insecure-_gifqqz^x(0#1jbkl*^1b0=%p1+aj97$4q-*g$^9rgv20399@1'
+os.environ['DB_PASSWORD'] = 'Himadhar123@'
 # Database
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.environ.get('travel_booking', 'mydatabase'),
-        'USER': os.environ.get('root', 'myuser'),
-        'PASSWORD': os.environ.get('Himadhar123@', ''),
+        'NAME': 'travel_booking',
+        'USER': 'root',
+        'PASSWORD': os.environ.get('DB_PASSWORD', ''),
         'HOST': 'sampath107b.mysql.pythonanywhere-services.com',
         'PORT': '3306',
     }
