@@ -34,8 +34,8 @@ sys.path.insert(0, '/home/sampath107b/travel-booking-app')
 
 
 
-# SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-for-dev')
-SECRET_KEY='django-insecure-_gifqqz^x(0#1jbkl*^1b0=%p1+aj97$4q-*g$^9rgv20399@1'
+SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'fallback-for-dev')
+# SECRET_KEY=os.environ.get('DJANGO_SECRET_KEY')
 
 
 
@@ -112,8 +112,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'travel_booking',
         'USER': 'root',        # your MySQL username
-        'PASSWORD': 'Himadhar123@',        # your MySQL password
-        'HOST': '127.0.0.1',  # local host
+        'PASSWORD': os.environ.get('DB_PASSWORD'),        # your MySQL password
+        'HOST': 'sampath107b.pythonanywhere.com',  # local host
         'PORT': '3306',
     }
 }
