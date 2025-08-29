@@ -110,7 +110,7 @@ WSGI_APPLICATION = 'travel_booking.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'travel_booking',
+        'NAME': 'sampath@default',
         'USER': 'root',        # your MySQL username
         'PASSWORD': os.environ.get('DB_PASSWORD'),        # your MySQL password
         'HOST': 'sampath107b.pythonanywhere.com',  # local host
