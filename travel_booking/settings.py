@@ -113,7 +113,7 @@ DATABASES = {
         'NAME': 'sampath@default',
         'USER': 'root',        # your MySQL username
         'PASSWORD': os.environ.get('DB_PASSWORD'),        # your MySQL password
-        'HOST': 'sampath107b.pythonanywhere.com',  # local host
+        'HOST': 'sampath107b.mysql.pythonanywhere-services.com',  # local host
         'PORT': '3306',
     }
 }
