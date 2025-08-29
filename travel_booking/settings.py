@@ -115,6 +115,9 @@ DATABASES = {
         'PASSWORD': os.environ.get('DB_PASSWORD'),        # your MySQL password
         'HOST': 'sampath107b.mysql.pythonanywhere-services.com',  # local host
         'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
     }
 }
 
